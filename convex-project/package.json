@@ -1,0 +1,24 @@
+{
+  "name": "convex-benchmark-project",
+  "version": "1.0.0",
+  "description": "Convex project for benchmarking real-time database operations",
+  "main": "index.js",
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy",
+    "deploy-local": "convex deploy --url http://localhost:3210"
+  },
+  "keywords": [
+    "convex",
+    "benchmark",
+    "realtime"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "convex": "^1.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

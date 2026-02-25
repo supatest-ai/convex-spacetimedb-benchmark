@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  spacetimedb:
+    image: clockworklabs/spacetime:latest
+    container_name: spacetimedb
+    ports:
+      - "3000:3000"
+    volumes:
+      - spacetimedb_data:/root/.spacetime
+    command: ["start", "--listen-addr", "0.0.0.0:3000"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "spacetime", "identity", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  spacetimedb_data:
+    driver: local

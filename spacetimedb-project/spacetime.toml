@@ -1,0 +1,6 @@
+[project]
+name = "benchmark"
+version = "1.0.0"
+
+[build]
+language = "rust"

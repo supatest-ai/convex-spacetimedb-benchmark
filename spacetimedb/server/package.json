@@ -1,0 +1,13 @@
+{
+  "name": "spacetimedb-benchmark-server",
+  "version": "1.0.0",
+  "description": "SpacetimeDB benchmark module",
+  "scripts": {
+    "build": "spacetime build",
+    "publish": "spacetime publish benchmark",
+    "build-publish": "spacetime build && spacetime publish benchmark"
+  },
+  "devDependencies": {
+    "@clockworklabs/spacetimedb-sdk": "^1.0.0"
+  }
+}

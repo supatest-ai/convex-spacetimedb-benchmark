@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+*/node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+target/
+*.wasm
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker volumes
+**/data/
+*.db
+*.sqlite
+
+# Rust
+Cargo.lock
+/target/
+**/*.rs.bk
+
+# Convex
+.convex/
+
+# SpacetimeDB
+.spacetime/

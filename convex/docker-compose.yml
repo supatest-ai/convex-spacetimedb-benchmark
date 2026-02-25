@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  convex-backend:
+    image: ghcr.io/get-convex/convex-backend:latest
+    container_name: convex-backend
+    ports:
+      - "3210:3210"
+      - "3211:3211"
+    environment:
+      - CONVEX_ADMIN_KEY=${CONVEX_ADMIN_KEY:-}
+      - CONVEX_SITE_URL=http://localhost:3211
+    volumes:
+      - convex-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3210/version"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  convex-dashboard:
+    image: ghcr.io/get-convex/convex-dashboard:latest
+    container_name: convex-dashboard
+    ports:
+      - "6791:6791"
+    environment:
+      - CONVEX_DASHBOARD_BACKEND_URL=http://convex-backend:3210
+      - CONVEX_DASHBOARD_SITE_URL=http://convex-backend:3211
+    depends_on:
+      convex-backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  convex-data:
+    driver: local
